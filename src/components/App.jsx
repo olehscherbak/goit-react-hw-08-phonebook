@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
+import Layout from './Layout/Layout';
 import { fetchContacts } from 'redux/contacts/operations';
-import ContactForm from './ContactForm/ContactForm';
-import Filter from './Filter/Filter';
-import ContactList from './ContactList/ContactList';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -12,12 +11,8 @@ export default function App() {
     dispatch(fetchContacts());
   }, [dispatch]);
   return (
-    <div className="phoneBook">
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      <Filter />
-      <ContactList />
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />} />
+    </Routes>
   );
 }
