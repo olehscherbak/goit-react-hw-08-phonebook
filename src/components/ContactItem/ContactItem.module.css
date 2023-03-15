@@ -1,0 +1,44 @@
+.contactRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 1px 0;
+}
+
+.contactRow:nth-child(2n) {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+}
+
+.contactInfo {
+  display: flex;
+  width: 275px;
+  justify-content: space-between;
+}
+
+.deleteBtn {
+  height: fit-content;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.name {
+  font-size: 14px;
+  max-width: 145px;
+  margin-left: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.number {
+  display: flex;
+  align-items: flex-end;
+  width: 120px;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-left: 3px;
+}
