@@ -4,8 +4,8 @@ import { AiFillFolderAdd } from 'react-icons/ai';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import css from './ContactForm.module.css';
-import * as selectors from 'redux/selectors';
-import { addContact } from 'redux/operations';
+import * as selectors from 'redux/contacts/selectors';
+import { addContact } from 'redux/contacts/operations';
 
 export default function ContactForm() {
   const dispatch = useDispatch();

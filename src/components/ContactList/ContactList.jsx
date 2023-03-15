@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 
-import * as selectors from 'redux/selectors';
+import * as selectors from 'redux/contacts/selectors';
+import { getFilter } from 'redux/filter/selectors';
 import ContactItem from 'components/ContactItem/ContactItem';
 import Loader from 'components/Loader/Loader';
 import css from './ContactList.module.css';
@@ -9,7 +10,7 @@ export default function ContactList() {
   const items = useSelector(selectors.getItems);
   const isLoading = useSelector(selectors.getIsLoading);
   const error = useSelector(selectors.getError);
-  const filter = useSelector(selectors.getFilter);
+  const filter = useSelector(getFilter);
   const filteredContacts =
     items.length > 0
       ? items.filter(item =>
