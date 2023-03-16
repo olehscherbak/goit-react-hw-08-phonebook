@@ -1,7 +1,7 @@
 import ContactForm from '../ContactForm/ContactForm';
 import ContactList from '../ContactList/ContactList';
 import Filter from '../Filter/Filter';
-import css from './Contacts.module.css';
+//import css from './Contacts.module.css';
 
 export default function Contacts() {
   return (
