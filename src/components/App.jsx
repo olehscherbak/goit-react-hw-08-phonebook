@@ -17,11 +17,11 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="/" element={<Contacts />} />
-        <Route path="/register" element={<RegisterForm />} />
-        <Route path="/login" element={<LoginForm />} />
+        <Route path="/contacts" element={<Contacts />} />
+        <Route path="register" element={<RegisterForm />} />
+        <Route path="login" element={<LoginForm />} />
+        <Route path="/" element={<Home />} />
       </Route>
-      <Route path="/home" element={<Home />} />
     </Routes>
   );
 }
