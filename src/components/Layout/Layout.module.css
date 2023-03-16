@@ -1,0 +1,9 @@
+.phoneBook {
+  margin: 20px auto;
+  padding: 10px;
+  width: 350px;
+  min-height: 85vh;
+  border-radius: 1px;
+  box-shadow: inset 0 0 100px 48px rgba(180, 180, 180, 0.5), 1px 1px #aaa,
+    2px 2px #ccc, 3px 3px #aaa, 4px 4px #ccc, 5px 5px #aaa, 6px 6px #ccc;
+}

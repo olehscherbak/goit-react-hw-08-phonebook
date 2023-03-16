@@ -31,7 +31,8 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className={css.form}>
-      <div className={css.container}>
+      <fieldset className={css.fieldset}>
+        <legend className={css.legend}>add contact</legend>
         <div className={css.inputsWraper}>
           <label className={css.label}>
             Name
@@ -73,7 +74,7 @@ export default function ContactForm() {
           </div>
           <span>contact</span>
         </button>
-      </div>
+      </fieldset>
       <ToastContainer />
     </form>
   );

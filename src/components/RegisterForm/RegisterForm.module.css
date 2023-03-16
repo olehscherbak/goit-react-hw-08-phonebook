@@ -1,0 +1,23 @@
+.form {
+  margin-top: 36px;
+  width: 100%;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.legend {
+  font-size: 0.8em;
+  background-color: #ddd;
+  border-radius: 3px;
+  border: 1px solid #aaa;
+}
+
+.fieldset {
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 8px 6px -6px;
+}
