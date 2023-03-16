@@ -8,6 +8,8 @@ import LoginForm from './LoginForm/LoginForm';
 import Contacts from './Contacts/Contacts';
 import Home from './Home/Home';
 import { fetchContacts } from 'redux/contacts/operations';
+import PrivateRoute from './PrivateRoute';
+import RestrictedRoute from './RestrictedRoute';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -17,10 +19,26 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="/contacts" element={<Contacts />} />
-        <Route path="register" element={<RegisterForm />} />
-        <Route path="login" element={<LoginForm />} />
         <Route path="/" element={<Home />} />
+        <Route
+          path="contacts"
+          element={<PrivateRoute redirectTo="/" component={<Contacts />} />}
+        />
+        <Route
+          path="register"
+          element={
+            <RestrictedRoute
+              redirectTo="/contacts"
+              component={<RegisterForm />}
+            />
+          }
+        />
+        <Route
+          path="login"
+          element={
+            <RestrictedRoute redirectTo="/contacts" component={<LoginForm />} />
+          }
+        />
       </Route>
     </Routes>
   );
