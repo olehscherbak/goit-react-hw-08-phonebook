@@ -17,7 +17,7 @@ export default function Contacts() {
     <div>
       <h1 className={css.title}>Phonebook</h1>
       <ContactForm />
-      <h2>Contacts</h2>
+      <h2 className={css.title}>Contacts</h2>
       <Filter />
       <ContactList />
     </div>

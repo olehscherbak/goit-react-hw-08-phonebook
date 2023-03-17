@@ -10,7 +10,7 @@
   margin-left: 20px;
 }
 
-.link:active {
+.link.active {
   color: #e84a5f;
 }
 
