@@ -23,15 +23,20 @@ export default function RegisterForm() {
         <legend className={css.legend}>registration</legend>
         <label className={css.label}>
           Username
-          <input type="text" name="name" autoComplete="off"></input>
+          <input type="text" name="name" autoComplete="off" required></input>
         </label>
         <label className={css.label}>
           E-mail
-          <input type="email" name="email" autoComplete="off"></input>
+          <input type="email" name="email" autoComplete="off" required></input>
         </label>
         <label className={css.label}>
           Password
-          <input type="password" name="password" autoComplete="off"></input>
+          <input
+            type="password"
+            name="password"
+            autoComplete="off"
+            required
+          ></input>
         </label>
         <button type="submit">Register</button>
       </fieldset>

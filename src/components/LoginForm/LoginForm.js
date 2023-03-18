@@ -18,17 +18,26 @@ export default function LoginForm() {
 
   return (
     <>
-      {/* <h3 className={css.title}>for registered users</h3> */}
       <form className={css.form} onSubmit={handleSubmit} autocompete="off">
         <fieldset className={css.fieldset}>
           <legend className={css.legend}>for registered users</legend>
           <label className={css.label}>
             E-mail
-            <input type="email" name="email" autoComplete="off"></input>
+            <input
+              type="email"
+              name="email"
+              autoComplete="off"
+              required
+            ></input>
           </label>
           <label className={css.label}>
             Password
-            <input type="password" name="password" autoComplete="off"></input>
+            <input
+              type="password"
+              name="password"
+              autoComplete="off"
+              required
+            ></input>
           </label>
           <button type="submit">Log in</button>
         </fieldset>
