@@ -19,7 +19,7 @@ export default function Contacts() {
     <div>
       <h1 className={css.title}>
         Phonebook &nbsp;
-        <RiContactsBook2Fill />
+        <RiContactsBook2Fill color="#787" />
       </h1>
       <ContactForm />
       <Filter />
