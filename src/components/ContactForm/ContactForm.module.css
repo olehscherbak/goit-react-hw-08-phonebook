@@ -13,8 +13,6 @@ h2 {
 }
 
 .addBtn {
-  /* height: 80%; */
-  /* width: fit-content; */
   width: 20%;
   margin: 0;
   margin-top: 16px;
@@ -43,7 +41,7 @@ h2 {
 }
 
 .legend {
-  font-size: 0.8em;
+  font-size: 1em;
   background-color: #ddd;
   border-radius: 3px;
   border: 1px solid #aaa;

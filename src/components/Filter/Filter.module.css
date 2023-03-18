@@ -1,11 +1,27 @@
+.filterContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 16px;
+  position: relative;
+}
+
 .filter {
-  box-sizing: border-box;
-  transition: width 0.4s ease-in-out;
+  display: block;
+  margin: 0 3px;
+  padding-left: 20px;
+  width: 45%;
   outline: none;
 }
 
 .filter:focus {
-  width: 100%;
   border: 2px solid #777;
-  border-radius: 3px;
+  border-radius: 5px;
+}
+
+.iconContainer {
+  position: absolute;
+  left: 47%;
+  display: flex;
+  align-items: center;
 }

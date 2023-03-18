@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { RiContactsBook2Fill } from 'react-icons/ri';
+
 import { fetchContacts } from 'redux/contacts/operations';
 
 import ContactForm from '../ContactForm/ContactForm';
@@ -15,9 +17,11 @@ export default function Contacts() {
 
   return (
     <div>
-      <h1 className={css.title}>Phonebook</h1>
+      <h1 className={css.title}>
+        Phonebook &nbsp;
+        <RiContactsBook2Fill />
+      </h1>
       <ContactForm />
-      <h2 className={css.title}>Contacts</h2>
       <Filter />
       <ContactList />
     </div>

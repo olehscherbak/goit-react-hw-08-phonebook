@@ -15,14 +15,24 @@
 
 .contactInfo {
   display: flex;
-  width: 275px;
+  width: 270px;
   justify-content: space-between;
 }
 
-.deleteBtn {
-  height: fit-content;
-  font-size: 12px;
+.buttonContainer {
+  display: flex;
+}
+
+.button {
+  /* height: fit-content; */
+  /* font-size: 12px; */
+  display: flex;
+  padding: 1px 3px;
   cursor: pointer;
+}
+
+.button:last-child {
+  margin-left: 3px;
 }
 
 .name {

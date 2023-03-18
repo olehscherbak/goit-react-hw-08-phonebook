@@ -28,11 +28,16 @@ export default function ContactList() {
           <p style={{ textAlign: 'center', margin: 0 }}>{error}</p>
         </>
       )}
-      <ul className={css.list}>
-        {filteredContacts.map(({ id, name, number }) => (
-          <ContactItem key={id} id={id} name={name} number={number} />
-        ))}
-      </ul>
+      <form className={css.form}>
+        <fieldset className={css.fieldset}>
+          <legend className={css.legend}> contacts </legend>
+          <ul className={css.list}>
+            {filteredContacts.map(({ id, name, number }) => (
+              <ContactItem key={id} id={id} name={name} number={number} />
+            ))}
+          </ul>
+        </fieldset>
+      </form>
     </>
   );
 }
