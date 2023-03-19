@@ -27,3 +27,7 @@ input {
 button {
   cursor: pointer;
 }
+
+a.active {
+  color: #333;
+}

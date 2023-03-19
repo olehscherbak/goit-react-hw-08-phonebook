@@ -18,7 +18,7 @@ export default function Filter() {
         onChange={handleChange}
       />
       <div className={css.iconContainer}>
-        <BiFilterAlt />
+        <BiFilterAlt color="#555" />
       </div>
     </div>
   );

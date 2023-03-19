@@ -5,19 +5,3 @@
   align-items: center;
   border-bottom: 1px solid #777;
 }
-
-.link {
-  display: inline-block;
-  text-decoration: none;
-  font-size: 0.8em;
-  font-weight: 700;
-  color: #777;
-}
-
-.link.active {
-  color: #e84a5f;
-}
-
-.link:hover {
-  color: #2a363b;
-}
