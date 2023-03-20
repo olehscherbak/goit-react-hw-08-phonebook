@@ -23,16 +23,6 @@
   display: flex;
 }
 
-.button {
-  display: flex;
-  padding: 1px 3px;
-  cursor: pointer;
-}
-
-.button:last-child {
-  margin-left: 3px;
-}
-
 .name {
   font-size: 14px;
   max-width: 145px;
@@ -49,4 +39,41 @@
   white-space: nowrap;
   overflow: hidden;
   margin-left: 3px;
+}
+
+/*  */
+.nameInput {
+  padding: 0 2px;
+  font-size: 12px;
+  max-width: 145px;
+  margin-left: 4px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  border-radius: 5px;
+  border: 0.5px solid #555;
+  /* background: linear-gradient(45deg, #bbb, #eee, #bbb, #eee, #bbb); */
+  background-color: #787;
+  color: #fff;
+}
+
+.numberInput {
+  padding: 0 3px;
+  display: flex;
+  align-items: flex-end;
+  width: 115px;
+  font-size: 12px;
+  margin-left: 3px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  border-radius: 5px;
+  border: 0.5px solid #555;
+  background: linear-gradient(45deg, #bbb, #eee, #bbb, #eee, #bbb);
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1px 3px;
+  cursor: pointer;
 }

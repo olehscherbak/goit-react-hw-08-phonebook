@@ -45,6 +45,10 @@ const contactsSlice = createSlice({
       );
       state.items.splice(index, 1);
     },
+    [deleteContact.rejected](state, action) {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
   },
 });
 

@@ -1,0 +1,9 @@
+.button {
+  display: flex;
+  padding: 1px 3px;
+  cursor: pointer;
+}
+
+.button:last-child {
+  margin-left: 3px;
+}
