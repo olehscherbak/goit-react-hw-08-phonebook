@@ -1,26 +1,17 @@
-.contactRow {
-  display: flex;
-  justify-content: space-between;
-  padding: 1px 0;
-}
-
-.contactRow:nth-child(2n) {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
 .contactItem {
   display: flex;
   align-items: center;
+  padding: 1px 0;
+}
+
+.contactItem:nth-child(2n) {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .contactInfo {
   display: flex;
   width: 270px;
   justify-content: space-between;
-}
-
-.buttonContainer {
-  display: flex;
 }
 
 .name {
@@ -51,9 +42,7 @@
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   border-radius: 5px;
   border: 0.5px solid #555;
-  /* background: linear-gradient(45deg, #bbb, #eee, #bbb, #eee, #bbb); */
-  background-color: #787;
-  color: #fff;
+  background: linear-gradient(45deg, #bbb, #eee, #bbb, #eee, #bbb);
 }
 
 .numberInput {
@@ -73,7 +62,15 @@
 .button {
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin-left: 3px;
   padding: 1px 3px;
+  align-items: center;
   cursor: pointer;
+}
+
+.saveButton {
+  padding: 1px 3px;
+  border-width: 2px;
+  border-radius: 3px;
+  background-color: #aaa;
 }

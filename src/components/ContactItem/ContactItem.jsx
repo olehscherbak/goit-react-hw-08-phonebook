@@ -3,7 +3,9 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { GiRotaryPhone } from 'react-icons/gi';
 import { GrEdit } from 'react-icons/gr';
-// import { MdDoneOutline } from 'react-icons/md';
+import { MdDelete } from 'react-icons/md';
+import { MdDoneOutline } from 'react-icons/md';
+
 import css from './ContactItem.module.css';
 import SaveChangeButton from './SaveChangeButton/SaveChangeButton';
 import DeleteButton from './DeleteButton/DeleteButton';
@@ -20,11 +22,11 @@ export default class ContactItem extends Component {
     const { id, name, number } = this.props;
     const isEditing = this.state.isEditing;
     return (
-      <li className={css.contactRow}>
-        <span className={css.contactItem}>
-          <GiRotaryPhone />
+      <li className={css.contactItem}>
+        <GiRotaryPhone />
 
-          {isEditing ? (
+        {isEditing ? (
+          <>
             <span className={css.contactInfo}>
               <input
                 type="text"
@@ -39,17 +41,25 @@ export default class ContactItem extends Component {
                 defaultValue={number}
               />
             </span>
-          ) : (
+            <button
+              type="button"
+              className={[css.button, css.saveButton].join(' ')}
+              onClick={() => {
+                this.handleSaveClick();
+                <SaveChangeButton id={id} />;
+                // handleClick();
+                // dispatch(deleteContact(id));
+              }}
+            >
+              <MdDoneOutline />
+            </button>
+          </>
+        ) : (
+          <>
             <span className={css.contactInfo}>
               <span className={css.name}>{name}</span>
               <span className={css.number}>{number}</span>
             </span>
-          )}
-        </span>
-        <span className={css.buttonContainer}>
-          {isEditing ? (
-            <SaveChangeButton id={id} handleClick={this.handleSaveClick} />
-          ) : (
             <button
               type="button"
               className={css.button}
@@ -57,9 +67,19 @@ export default class ContactItem extends Component {
             >
               <GrEdit />
             </button>
-          )}
-          <DeleteButton id={id} />
-        </span>
+          </>
+        )}
+
+        <button
+          type="button"
+          className={css.button}
+          onClick={() => {
+            // <DeleteButton id={id} />;
+            console.log('DeleteButton');
+          }}
+        >
+          <MdDelete />
+        </button>
       </li>
     );
   }
