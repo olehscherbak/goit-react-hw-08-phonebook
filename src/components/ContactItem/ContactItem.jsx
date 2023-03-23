@@ -74,8 +74,8 @@ export default class ContactItem extends Component {
           type="button"
           className={css.button}
           onClick={() => {
-            // <DeleteButton id={id} />;
-            console.log('DeleteButton');
+            <DeleteButton id={id} />;
+            // console.log('DeleteButton');
           }}
         >
           <MdDelete />
