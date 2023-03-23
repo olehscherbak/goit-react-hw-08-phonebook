@@ -61,10 +61,8 @@ const contactsSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       const { id, name, number } = action.payload;
-      const contactIndex = state.contacts.findIndex(
-        contact => contact.id === id
-      );
-      state.contacts[contactIndex] = { id, name, number };
+      const contactIndex = state.items.findIndex(contact => contact.id === id);
+      state.items[contactIndex] = { id, name, number };
     },
     [changeContact.rejected](state, action) {
       state.isLoading = false;

@@ -6,12 +6,16 @@ import { GrEdit } from 'react-icons/gr';
 import { MdDelete } from 'react-icons/md';
 import { MdDoneOutline } from 'react-icons/md';
 
+import { withHooksHOC } from 'addons/withHooksHOC ';
+import { deleteContact, changeContact } from 'redux/contacts/operations';
 import css from './ContactItem.module.css';
-import SaveChangeButton from './SaveChangeButton/SaveChangeButton';
-import DeleteButton from './DeleteButton/DeleteButton';
 
-export default class ContactItem extends Component {
-  state = { isEditing: false };
+class ContactItem extends Component {
+  state = {
+    name: this.props.name,
+    number: this.props.number,
+    isEditing: false,
+  };
   handleEditClick = () => {
     this.setState({ isEditing: true });
   };
@@ -19,7 +23,7 @@ export default class ContactItem extends Component {
     this.setState({ isEditing: false });
   };
   render() {
-    const { id, name, number } = this.props;
+    const { id, name, number, dispatch } = this.props;
     const isEditing = this.state.isEditing;
     return (
       <li className={css.contactItem}>
@@ -33,12 +37,20 @@ export default class ContactItem extends Component {
                 name="name"
                 className={css.nameInput}
                 defaultValue={name}
+                onBlur={() => {
+                  this.setState({ name: this.value });
+                  console.log(this.value);
+                }}
               />
               <input
                 type="text"
                 name="number"
                 className={css.numberInput}
                 defaultValue={number}
+                onBlur={() => {
+                  this.setState({ name: this.value });
+                  console.log(this.value);
+                }}
               />
             </span>
             <button
@@ -46,9 +58,13 @@ export default class ContactItem extends Component {
               className={[css.button, css.saveButton].join(' ')}
               onClick={() => {
                 this.handleSaveClick();
-                <SaveChangeButton id={id} />;
-                // handleClick();
-                // dispatch(deleteContact(id));
+                dispatch(
+                  changeContact({
+                    id,
+                    name: 'Oleh Scherbak',
+                    number: '+38067-247-62-45',
+                  })
+                );
               }}
             >
               <MdDoneOutline />
@@ -74,8 +90,7 @@ export default class ContactItem extends Component {
           type="button"
           className={css.button}
           onClick={() => {
-            <DeleteButton id={id} />;
-            // console.log('DeleteButton');
+            dispatch(deleteContact(id));
           }}
         >
           <MdDelete />
@@ -84,6 +99,8 @@ export default class ContactItem extends Component {
     );
   }
 }
+
+export default withHooksHOC(ContactItem);
 
 ContactItem.propTypes = {
   id: PropTypes.string.isRequired,
