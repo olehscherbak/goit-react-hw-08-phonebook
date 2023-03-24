@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { toast } from 'react-toastify';
 
 import PropTypes from 'prop-types';
 import { GiRotaryPhone } from 'react-icons/gi';
@@ -37,32 +38,43 @@ class ContactItem extends Component {
                 name="name"
                 className={css.nameInput}
                 defaultValue={name}
-                onBlur={() => {
-                  this.setState({ name: this.value });
-                  console.log(this.value);
+                autoComplete="off"
+                pattern="^[a-zA-Zа-яА-ЯЇїЄєІіҐґ'’ʼ]+(([' -][a-zA-Zа-яА-ЯЇїЄєІіҐґ'’ʼ ])?[a-zA-Zа-яА-ЯЇїЄєІіҐґ'’ʼ]*)*$"
+                title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+                required
+                autoFocus
+                onFocus={evt => evt.target.select()}
+                onBlur={evt => {
+                  !evt.target.validity.patternMismatch &&
+                    this.setState({ name: evt.target.value });
                 }}
               />
               <input
-                type="text"
+                type="tel"
                 name="number"
                 className={css.numberInput}
                 defaultValue={number}
-                onBlur={() => {
-                  this.setState({ name: this.value });
-                  console.log(this.value);
+                autoComplete="off"
+                pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+                required
+                onFocus={evt => evt.target.select()}
+                onBlur={evt => {
+                  !evt.target.validity.patternMismatch &&
+                    this.setState({ number: evt.target.value });
                 }}
               />
             </span>
             <button
-              type="button"
+              type="submit"
               className={[css.button, css.saveButton].join(' ')}
               onClick={() => {
                 this.handleSaveClick();
                 dispatch(
                   changeContact({
                     id,
-                    name: 'Oleh Scherbak',
-                    number: '+38067-247-62-45',
+                    name: this.state.name,
+                    number: this.state.number,
                   })
                 );
               }}

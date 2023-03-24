@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 
 import { AiFillFolderAdd } from 'react-icons/ai';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import css from './ContactForm.module.css';
 import * as selectors from 'redux/contacts/selectors';
@@ -75,7 +75,6 @@ export default function ContactForm() {
           <span>contact</span>
         </button>
       </fieldset>
-      <ToastContainer />
     </form>
   );
 }
