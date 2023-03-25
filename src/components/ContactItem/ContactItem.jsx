@@ -16,15 +16,12 @@ class ContactItem extends Component {
     name: this.props.name,
     number: this.props.number,
     isEditing: false,
+    nameError: false,
+    numberError: false,
   };
-  handleEditClick = () => {
-    this.setState({ isEditing: true });
-  };
-  handleSaveClick = () => {
-    this.setState({ isEditing: false });
-  };
+
   render() {
-    const { id, name, number, dispatch } = this.props;
+    const { id, name, number, dispatch, contacts } = this.props;
     const isEditing = this.state.isEditing;
     return (
       <li className={css.contactItem}>
@@ -43,10 +40,21 @@ class ContactItem extends Component {
                 title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                 required
                 autoFocus
-                onFocus={evt => evt.target.select()}
+                onChange={evt => {
+                  const isPatternError = evt.target.validity.patternMismatch;
+                  isPatternError
+                    ? (evt.target.style.outline = '2px solid red')
+                    : (evt.target.style.outline = 'none');
+                  isPatternError
+                    ? this.setState({ nameError: true })
+                    : this.setState({ nameError: false });
+                }}
                 onBlur={evt => {
-                  !evt.target.validity.patternMismatch &&
+                  if (!evt.target.validity.patternMismatch) {
                     this.setState({ name: evt.target.value });
+                  } else {
+                    evt.target.focus();
+                  }
                 }}
               />
               <input
@@ -58,25 +66,48 @@ class ContactItem extends Component {
                 pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                 title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                 required
-                onFocus={evt => evt.target.select()}
+                onChange={evt => {
+                  const isPatternError = evt.target.validity.patternMismatch;
+                  isPatternError
+                    ? (evt.target.style.outline = '2px solid red')
+                    : (evt.target.style.outline = 'none');
+                  isPatternError
+                    ? this.setState({ numberError: true })
+                    : this.setState({ numberError: false });
+                }}
                 onBlur={evt => {
-                  !evt.target.validity.patternMismatch &&
+                  if (!evt.target.validity.patternMismatch) {
                     this.setState({ number: evt.target.value });
+                  } else {
+                    evt.target.focus();
+                  }
                 }}
               />
             </span>
             <button
-              type="submit"
+              type="button"
+              disabled={this.state.nameError || this.state.numberError}
               className={[css.button, css.saveButton].join(' ')}
-              onClick={() => {
-                this.handleSaveClick();
-                dispatch(
-                  changeContact({
-                    id,
-                    name: this.state.name,
-                    number: this.state.number,
-                  })
-                );
+              onClick={evt => {
+                if (
+                  contacts.some(
+                    contact =>
+                      contact.name === this.state.name && contact.id !== id
+                  )
+                ) {
+                  return toast.warn(
+                    `${this.state.name} is already in contacts`
+                  );
+                } else {
+                  this.setState({ isEditing: false });
+                  dispatch(
+                    changeContact({
+                      id,
+                      name: this.state.name,
+                      number: this.state.number,
+                    })
+                  );
+                }
               }}
             >
               <MdDoneOutline />
@@ -91,7 +122,9 @@ class ContactItem extends Component {
             <button
               type="button"
               className={css.button}
-              onClick={this.handleEditClick}
+              onClick={() => {
+                this.setState({ isEditing: true });
+              }}
             >
               <GrEdit />
             </button>
