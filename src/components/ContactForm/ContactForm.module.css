@@ -44,14 +44,14 @@ h2 {
   font-size: 1em;
   background-color: #ddd;
   border-radius: 3px;
-  border: 1px solid #aaa;
+  border: 1px solid #888;
 }
 
 .fieldset {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #aaa;
+  border: 1px solid #888;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.45) 8px 8px 6px -6px;
 }
