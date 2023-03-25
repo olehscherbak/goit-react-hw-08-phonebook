@@ -43,7 +43,7 @@ class ContactItem extends Component {
                 onChange={evt => {
                   const isPatternError = evt.target.validity.patternMismatch;
                   isPatternError
-                    ? (evt.target.style.outline = '2px solid red')
+                    ? (evt.target.style.outline = '1px solid red')
                     : (evt.target.style.outline = 'none');
                   isPatternError
                     ? this.setState({ nameError: true })
@@ -69,7 +69,7 @@ class ContactItem extends Component {
                 onChange={evt => {
                   const isPatternError = evt.target.validity.patternMismatch;
                   isPatternError
-                    ? (evt.target.style.outline = '2px solid red')
+                    ? (evt.target.style.outline = '1px solid red')
                     : (evt.target.style.outline = 'none');
                   isPatternError
                     ? this.setState({ numberError: true })
